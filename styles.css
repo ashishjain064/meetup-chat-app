@@ -1,0 +1,60 @@
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+* {
+  font-family: "Ubuntu", "Helvetica", sans-serif;
+}
+body {
+  background-image: url(/hey.jpg);
+  background-repeat: repeat-y;
+  /* background-color: thistle; */
+  background-size: 99.9%;
+  border: 10px solid tomato;
+}
+p {
+  border: 5px solid purple;
+}
+h1 {
+  font-size: 420%;
+  text-align: center;
+  height: 30%;
+  color: white;
+}
+h2 {
+  font-size: 220%;
+  text-align: center;
+  /* height: 30%; */
+  color: white;
+}
+#form {
+  text-align: center;
+  border: 5px solid pink;
+  padding-bottom: 25%;
+  width: 30%;
+  margin: 0 auto;
+}
+label {
+  /* border-bottom: 4px solid grey; */
+  text-align: left;
+  font-size: 1.22em;
+  color: aliceblue;
+  /* margin-right: 35%;
+  margin-bottom: 10%; */
+}
+img {
+  /* width: 10%; */
+  padding-inline-start: 10%;
+  padding: 15% 3.5% 0 5%;
+  border: 2px solid red;
+  margin-top: 10%;
+}
+#t {
+  border: 5px solid brown;
+  top: 20%;
+}
+input {
+  border: 0px hidden transparent;
+  outline: transparent;
+  font-size: 1.22em;
+  background: none;
+  color: aliceblue;
+  border-bottom: 2px solid grey;
+}

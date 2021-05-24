@@ -1,0 +1,21 @@
+html
+    head 
+        title pug tempate 
+        style
+            include styles.css
+    body 
+    p 
+        h1 Meetup!
+    #form 
+        h2 Login
+        form(action="/login", method="post") 
+            label(for="name") 	&#x1F4E7; &#x27A1;        
+            input(type="text", name="name", class="field")
+            br
+            br
+            label(for="pass") 	&#x1F510; &#x27A1;       
+            input(type="password", name='pass')
+            br
+            button(type="submit") submit now
+        a(href="/auth/google") sign in with google
+
