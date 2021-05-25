@@ -18,23 +18,24 @@ module.exports = function (app, myDataBase) {
     });
   });
 
-  passport.use(
-    new LocalStrategy(function (username, password, done) {
-      myDataBase.findOne({ username: username }, function (err, user) {
-        console.log(`${user} tried to login`); //user login try
-        if (err) {
-          return done(err);
-        }
-        if (!user) {
-          return done(null, false);
-        }
-        if (password != user.password) {
-          return done(null, false);
-        }
-        return done(null, user);
-      });
-    })
-  );
+  //LocalStrategy not currently in use
+  // passport.use(
+  //   new LocalStrategy(function (username, password, done) {
+  //     myDataBase.findOne({ username: username }, function (err, user) {
+  //       console.log(`${user} tried to login`); //user login try
+  //       if (err) {
+  //         return done(err);
+  //       }
+  //       if (!user) {
+  //         return done(null, false);
+  //       }
+  //       if (password != user.password) {
+  //         return done(null, false);
+  //       }
+  //       return done(null, user);
+  //     });
+  //   })
+  // );
 
   //google oauth2
   passport.use(
@@ -59,10 +60,8 @@ module.exports = function (app, myDataBase) {
                 return done(null, user);
               }
             );
-            console.log("61", user, profile); //
             firstName = profile._json.given_name;
           }
-          // console.log
           firstName = profile._json.given_name;
           gid = user.googleId;
           return done(null, user);
@@ -70,5 +69,4 @@ module.exports = function (app, myDataBase) {
       }
     )
   );
-  console.log("74", gid); //
 };

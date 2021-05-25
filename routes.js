@@ -1,20 +1,17 @@
 const { profile } = require("console");
 const express = require("express");
-const app = express();
+const app = require("express")();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 const passport = require("passport");
-// const http = require(http);
-// const server = http.createServer(app);
-// const { Server } = require("socket.io");
-// const io = new Server(server);
 
 module.exports = function (app, myDataBase) {
-  app.post(
-    "/login",
-    passport.authenticate("local", { failureRedirect: "/" }, (req, res) => {
-      console.log("test");
-      res.render("profile.pug");
-    })
-  );
+  // app.post(
+  //   "/login",
+  //   passport.authenticate("local", { failureRedirect: "/" }, (req, res) => {
+  //     res.render("profile.pug");
+  //   })
+  // );
 
   app.get("/profile", ensureAuth, (req, res) => {
     res.render("profile.pug", { gid: profile.googleId, gid2: gid });
@@ -42,15 +39,8 @@ module.exports = function (app, myDataBase) {
   );
 
   app.get("/chat", (req, res) => {
-    res.render(__dirname + "/chat.pug");
+    res.render(__dirname + "/chat/chat.pug");
   });
-
-  // io.on("connection", (socket) => {
-  //   socket.on("chat message", (msg) => {
-  //     io.emit("chat message", msg);
-  //   });
-  // });
-  // );
 
   function ensureAuth(req, res, next) {
     if (req.isAuthenticated()) {

@@ -3,14 +3,13 @@
   font-family: "Ubuntu", "Helvetica", sans-serif;
 }
 body {
-  background-image: url(/hey.jpg);
+  background-image: url(/public/hey.jpg);
   background-repeat: repeat-y;
   /* background-color: thistle; */
   background-size: 99.9%;
-  border: 10px solid tomato;
 }
 p {
-  border: 5px solid purple;
+  border: 0px solid purple;
 }
 h1 {
   font-size: 420%;
@@ -26,7 +25,6 @@ h2 {
 }
 #form {
   text-align: center;
-  border: 5px solid pink;
   padding-bottom: 25%;
   width: 30%;
   margin: 0 auto;
@@ -43,11 +41,10 @@ img {
   /* width: 10%; */
   padding-inline-start: 10%;
   padding: 15% 3.5% 0 5%;
-  border: 2px solid red;
+  border: 0px solid red;
   margin-top: 10%;
 }
 #t {
-  border: 5px solid brown;
   top: 20%;
 }
 input {

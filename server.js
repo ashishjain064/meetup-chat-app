@@ -1,5 +1,7 @@
 const express = require("express");
-const app = express();
+const app = require("express")();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 const pug = require("pug");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -7,10 +9,6 @@ const passport = require("passport");
 const mongo = require("mongodb");
 const ObjectID = require("mongodb").ObjectID;
 const LocalStrategy = require("passport-local");
-// const http = require("http");
-// const server = http.createServer(app);
-// const { Server } = require("socket.io");
-// const io = new Server(server);
 const myDB = require("./connection");
 const routes = require("./routes");
 const auth = require("./auth");
@@ -37,13 +35,11 @@ app.use(passport.session());
 // routes
 
 app.get("/", (req, res) => {
-  console.log("qw"); //
-  res.render(__dirname + "/index.pug");
+  res.render(__dirname + "/homepage/index.pug");
 });
 
-app.get("/hey.jpg", (req, res) => {
-  console.log("tr"); //tr
-  res.sendFile(__dirname + "/hey.jpg");
+app.get("/public/hey.jpg", (req, res) => {
+  res.sendFile(__dirname + "/public/hey.jpg");
 });
 
 // db async
@@ -54,11 +50,17 @@ myDB(async (client) => {
   routes(app, myDataBase);
   auth(app, myDataBase);
 
+  io.on("connection", (socket) => {
+    socket.on("chat message", (msg) => {
+      io.emit("chat message", msg);
+    });
+  });
+
   app.use((req, res, next) => {
     res.status(404).type("text").send("Not Found");
   });
 });
 
-app.listen(3000, () => {
+server.listen(3000, () => {
   console.log("app listening on 3000"); //listening
 });
