@@ -50,9 +50,13 @@ myDB(async (client) => {
   routes(app, myDataBase);
   auth(app, myDataBase);
 
+  app.get("/chat", (req, res) => {
+    res.render(__dirname + "/chat/chat.pug", { fn: firstName });
+  });
+
   io.on("connection", (socket) => {
     socket.on("chat message", (msg) => {
-      io.emit("chat message", msg);
+      io.emit("chat message", firstName + ": " + msg);
     });
   });
 
@@ -60,6 +64,8 @@ myDB(async (client) => {
     res.status(404).type("text").send("Not Found");
   });
 });
+
+module.exports = { firstName };
 
 server.listen(3000, () => {
   console.log("app listening on 3000"); //listening

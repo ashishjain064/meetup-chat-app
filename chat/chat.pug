@@ -3,16 +3,27 @@ head
   title Socket.IO chat
   style 
     include styles.css
+h2 #{fn} has joined  
 ul#messages
 form#form(action='')
   input#input(autocomplete='off')
   button Send
 script(src='/socket.io/socket.io.js')
+//- script(src="/server.js") 
 script.
+
   var socket = io();
   var messages = document.getElementById("messages");
   var form = document.getElementById("form");
   var input = document.getElementById("input");
+  
+
+  //- var newfn = global.sessionStorage.getItem("fn", firstName);
+
+  //- console.log("22", fn)
+  //- socket.emit("joined", newfn)
+  
+
   form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (input.value) {
@@ -20,6 +31,15 @@ script.
   input.value = "";
   }
   });
+
+
+  socket.on("joined", function(firstName) {
+  var item = document.createElement("li");
+  item.textContent = `${firstName} has joined`;
+  messages.appendChild(item);
+  window.scrollTo(0, document.body.scrollHeight);
+  });
+
   socket.on("chat message", function (msg) {
   var item = document.createElement("li");
   item.textContent = msg;

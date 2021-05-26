@@ -4,6 +4,7 @@ const app = require("express")();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 const passport = require("passport");
+const { firstName } = require("./server");
 
 module.exports = function (app, myDataBase) {
   // app.post(
@@ -33,14 +34,14 @@ module.exports = function (app, myDataBase) {
     "/auth/google/callback",
     passport.authenticate("google", { failureRedirect: "/" }),
     function (req, res) {
-      res.render(__dirname + "/profile.pug"); //, {gid: user.googleId,
+      res.render(__dirname + "/profile/profile.pug"); //, {gid: user.googleId,
       // gid2: gid,
     }
   );
 
-  app.get("/chat", (req, res) => {
-    res.render(__dirname + "/chat/chat.pug");
-  });
+  // app.get("/chat", (req, res) => {
+  //   res.render(__dirname + "/chat/chat.pug", { fn: firstName });
+  // });
 
   function ensureAuth(req, res, next) {
     if (req.isAuthenticated()) {
