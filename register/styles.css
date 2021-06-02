@@ -13,19 +13,18 @@ p {
 h1 {
   font-size: 420%;
   text-align: center;
-  height: 23%;
+  height: 25%;
   color: white;
 }
 h2 {
   font-size: 220%;
   text-align: center;
-  margin-top: 30px;
   /* height: 30%; */
   color: white;
 }
 #form {
   text-align: center;
-  padding-bottom: 5%;
+  padding-bottom: 25%;
   width: 30%;
   margin: 0 auto;
 }
@@ -54,17 +53,4 @@ input {
   background: none;
   color: aliceblue;
   border-bottom: 2px solid grey;
-}
-#g{
-  margin-bottom: 20%;
-  color: white;;
-  padding: 10px;
-}
-.ulg{
-  list-style-position: outside;
-  list-style-type: none;
-  margin-right: 2.5rem;
-}
-a{
-  color: white;
 }

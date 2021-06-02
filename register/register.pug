@@ -7,9 +7,13 @@ html
     p 
         h1 Meetup!
     #form 
-        h2 Login
-        form(action="/login", method="post") 
-            label(for="name") 	Username &#x27A1;        
+        h2 Register
+        form(action="/register", method="post") 
+            label(for="firstname") 	First name &#x27A1;        
+            input(type="text", name="firstname", class="field")
+            br
+            br
+            label(for="username") 	Username &#x27A1;        
             input(type="text", name="username", class="field")
             br
             br
@@ -18,11 +22,8 @@ html
             br
             br
             button(type="submit") Submit
-        a(href="/register") New here? Register now
+        a(href="/auth/google") Sign in with google
         br
         br
-        br
-        ul(class="ulg")
-            li 
-                a(href="/auth/google" id="g") Sign in with Google
-                    //- img(src="../public/g.png", alt="alt")
+
+        a(href="/") Back to login

@@ -1,0 +1,17 @@
+doctype html
+head
+  title Socket.IO chat
+  style 
+    include styles.css
+#bothHeading
+  h1(class="heading") Tech Chatroom
+  h3(class="heading") Everyone here likes tech!
+h2 #{fn} has joined
+body 
+#heading
+ul#messages
+form#form(action='')
+  input#input(autocomplete='off',  onfocusout="notTyping()")
+  button Send
+script(src='/socket.io/socket.io.js')
+script(src="/chatdom.js")

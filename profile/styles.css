@@ -1,0 +1,65 @@
+body {
+  background-image: url(/public/hey.jpg);
+  background-repeat: no-repeat;
+  background-repeat: repeat-y;
+  background-size: 99.9%;
+  margin: 0;
+  padding-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+h1 {
+  text-align: center;
+  color: #d5d5d5;
+}
+h2 {
+  text-align: center;
+  color: #d5d5d5;
+}
+.flexcontain {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /*   background-color: DodgerBlue; */
+  border: 5px solid black;
+  margin: 0 10%;
+}
+img {
+  background-color: red;
+  width: 55%;
+  height: 70%;
+  margin: 0 30%;
+  border: 5px solid red;
+}
+
+#ml {
+  margin-left: 45%;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #d5d5d5;
+  padding: 5px;
+}
+#sl {
+  margin-left: 48%;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #d5d5d5;
+  padding: 5px;
+}
+#tl {
+  margin-left: 43%;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #d5d5d5;
+  padding: 5px;
+}
+#logout {
+  margin: 25% 46%;
+  position: absolute;
+  padding: 5px;
+  background-color: #d5d5d5;
+  font-size: 2rem;
+}

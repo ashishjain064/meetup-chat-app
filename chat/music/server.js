@@ -50,6 +50,7 @@ app.get("/public/g.png", (req, res) => {
   res.sendFile(__dirname + "/public/g.png");
 });
 
+
 // db async
 myDB(async (client) => {
   const myDataBase = await client.db("databse").collection("users");
@@ -63,6 +64,10 @@ myDB(async (client) => {
     res.render(__dirname + "/chat/chat.pug", { fn: firstName });
     console.log("server 60"); //
   });
+
+  // app.get("/profile?sinterest=sports", (req, res) => {
+  //   res.render(__dirname + "/chat/chat.pug", { fn: firstName });
+  // });
 
   io.on("connection", (socket) => {
     socket.on("chat message", (msg) => {

@@ -3,6 +3,8 @@ const mongo = require("mongodb");
 const ObjectID = require("mongodb").ObjectID;
 const LocalStrategy = require("passport-local");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+var newFirst = "";
+var sendNewFirst = "";
 
 module.exports = function (app, myDataBase) {
   passport.serializeUser((user, done) => {
@@ -18,24 +20,33 @@ module.exports = function (app, myDataBase) {
     });
   });
 
-  //LocalStrategy not currently in use
-  // passport.use(
-  //   new LocalStrategy(function (username, password, done) {
-  //     myDataBase.findOne({ username: username }, function (err, user) {
-  //       console.log(`${user} tried to login`); //user login try
-  //       if (err) {
-  //         return done(err);
-  //       }
-  //       if (!user) {
-  //         return done(null, false);
-  //       }
-  //       if (password != user.password) {
-  //         return done(null, false);
-  //       }
-  //       return done(null, user);
-  //     });
-  //   })
-  // );
+  // LocalStrategy not currently in use
+
+  passport.use(
+    new LocalStrategy(function (username, password, done) {
+      newFirst = "";
+      myDataBase.findOne({ username: username }, function (err, user) {
+        //console.log(`${user} tried to login`); //user login try
+        if (err) {
+          // console.log("Invalid username or password");
+          return done(err);
+        }
+        if (!user) {
+          // console.log("Invalid username or password");
+          return done(null, false);
+        }
+        if (password != user.password) {
+          // console.log("Invalid username or password");
+          return done(null, false);
+        }
+        firstName = user.firstname;
+        newFirst = user.firstname;
+        module.exports.sendNewFirst = newFirst;
+
+        return done(null, user);
+      });
+    })
+  );
 
   //google oauth2
   passport.use(
@@ -60,10 +71,12 @@ module.exports = function (app, myDataBase) {
                 return done(null, user);
               }
             );
-            firstName = profile._json.given_name;
+            checkFirst = profile._json.given_name
+            newFirst = user.firstname;
+            module.exports.sendNewFirst = newFirst;
           }
-          firstName = profile._json.given_name;
-          gid = user.googleId;
+          newFirst = user.firstname;
+          module.exports.sendNewFirst = newFirst;
           return done(null, user);
         });
       }

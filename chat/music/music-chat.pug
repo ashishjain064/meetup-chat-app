@@ -3,16 +3,15 @@ head
   title Music Chatroom
   style 
     include styles.css
-h1(class="heading") Music Chatroom
-h3(class="heading") Everyone here likes music!
+#bothHeading
+  h1(class="heading") Music Chatroom
+  h3(class="heading") Everyone here likes music!
 h2 #{fn} has joined
 body 
 #heading
 ul#messages
 form#form(action='')
-  input#input(autocomplete='off', onfocusout="notTyping()")
+  input#input(autocomplete='off',  onfocusout="notTyping()")
   button Send
 script(src='/socket.io/socket.io.js')
-script(src="/require.js") 
-//- script(src="../server.js") 
 script(src="/chatdom.js")

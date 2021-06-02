@@ -1,4 +1,5 @@
-body {
+ body {
+   background-image: url("chatbg2.png");
   margin: 0;
   padding-bottom: 3rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
@@ -54,17 +55,35 @@ ul li {
   margin-bottom: 2px;
   font-family: Helvetica, Arial, sans-serif;
 }
+.heading{
+  text-align: center;
+  color: white;
+/*   background-color: green; */
+}
+#heading{
+    text-align: center;
+  color: white;
+}
 .heading2 {
   display: block;
   clear: both;
-  text-align: center;
+  text-align: center; 
 }
-
+#bothHeading{
+  color: white;
+  background-color: #191919;
+  border: 5px grey;
+  border-style: outset;
+}
+h2{
+  color: white;
+}
 .me {
   float: right;
   display: block;
   background: #0084ff;
   color: #fff;
+  font-size: 1.5rem;
 }
 .him {
   float: left;
