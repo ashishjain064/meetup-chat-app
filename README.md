@@ -2,4 +2,6 @@
 
 A Basic chat application created using Socket.io.
 
-Login with your google account.
+It has 3 chatrooms.
+
+google signin also available
